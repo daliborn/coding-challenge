@@ -2,7 +2,6 @@ package com.n26.domain;
 
 import javax.validation.constraints.PastOrPresent;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
 public class Transaction {

@@ -8,6 +8,9 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.DoubleSummaryStatistics;
 
+/**
+ * Util class for converting DoubleSummaryStatistics to Statistics
+ */
 public class StatisticsParser {
     private final static Logger log = LoggerFactory.getLogger(StatisticsParser.class);
     private StatisticsParser(){}
@@ -23,7 +26,12 @@ public class StatisticsParser {
 
     }
 
+    /**
+     * @param value
+     * @return BigDecimal
+     */
     private static BigDecimal parseBigDecimal(double value){
+        //TODO: invetsigate this
         try {
             return BigDecimal.valueOf(value).setScale(2, RoundingMode.HALF_UP);
         } catch (NumberFormatException nfe){

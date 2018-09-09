@@ -29,7 +29,7 @@ public class TransactionController {
             return new ResponseEntity(HttpStatus.UNPROCESSABLE_ENTITY);
         }
 
-        if(DurationUtil.isOlderThan(transaction.getTimestamp())){
+        if(DurationUtil.isOlderThanSixtySecondsFromNow(transaction.getTimestamp())){
             return new ResponseEntity(HttpStatus.NO_CONTENT);
         }
 
