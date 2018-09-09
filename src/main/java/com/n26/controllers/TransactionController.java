@@ -19,12 +19,16 @@ import javax.validation.Valid;
 public class TransactionController {
     Logger log = LoggerFactory.getLogger(TransactionController.class);
 
-    @Autowired
     private TransactionService transactionService;
+
+    @Autowired
+    public TransactionController(TransactionService transactionService) {
+        this.transactionService = transactionService;
+    }
 
     @PostMapping
     @ResponseBody
-    public ResponseEntity greeting(@Valid @RequestBody Transaction transaction, Errors errors) {
+    public final ResponseEntity greeting(@Valid @RequestBody Transaction transaction, Errors errors) {
         if (errors.hasErrors()){
             return new ResponseEntity(HttpStatus.UNPROCESSABLE_ENTITY);
         }

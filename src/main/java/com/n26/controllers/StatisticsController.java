@@ -12,9 +12,12 @@ import static org.springframework.http.HttpStatus.OK;
 @RestController(value = "/statistics")
 public class StatisticsController {
 
-    @Autowired
     private TransactionService transactionService;
 
+    @Autowired
+    public StatisticsController(TransactionService transactionService) {
+        this.transactionService = transactionService;
+    }
 
     @GetMapping
     public ResponseEntity<Statistics> getStatistics() {
