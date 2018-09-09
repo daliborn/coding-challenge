@@ -1,19 +1,28 @@
 package com.n26.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
+
 import java.math.BigDecimal;
 
 public class Statistics {
-    //  "sum": "1000.00",
-    //  "avg": "100.53",
-    //  "max": "200000.49",
-    //  "min": "50.23",
-    //  "count": 10
     private BigDecimal sum;
     private BigDecimal avg;
     private BigDecimal max;
     private BigDecimal min;
     private Integer count;
 
+    public Statistics() {
+        this.sum = new BigDecimal(0.00);
+        this.avg= new BigDecimal(0.00);
+        this.max= new BigDecimal(0.00);
+        this.min = new BigDecimal(0.00);
+        this.count = 0;
+    }
+
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     public BigDecimal getSum() {
         return sum;
     }
@@ -22,6 +31,7 @@ public class Statistics {
         this.sum = sum;
     }
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     public BigDecimal getAvg() {
         return avg;
     }
@@ -30,6 +40,7 @@ public class Statistics {
         this.avg = avg;
     }
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     public BigDecimal getMax() {
         return max;
     }
@@ -38,6 +49,7 @@ public class Statistics {
         this.max = max;
     }
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     public BigDecimal getMin() {
         return min;
     }

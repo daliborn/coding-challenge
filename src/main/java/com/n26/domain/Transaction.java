@@ -1,33 +1,29 @@
 package com.n26.domain;
 
-import org.springframework.beans.factory.annotation.Required;
-
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PastOrPresent;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 
 public class Transaction {
-    // amount – transaction amount; a string of arbitrary length that is parsable as a BigDecimal
-    //timestamp – transaction time in the ISO 8601 format YYYY-MM-DDThh:mm:ss.sssZ in the UTC timezone (this is not the current timestamp)
-    @NotBlank
-    private String amount;
+    private BigDecimal amount;
     @PastOrPresent
-    private LocalDateTime timestamp;
+    private ZonedDateTime timestamp;
 
-    public String getAmount() {
+
+    public BigDecimal getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
     }
 
-    public LocalDateTime getTimestamp() {
+    public @PastOrPresent ZonedDateTime getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(LocalDateTime timestamp) {
+    public void setTimestamp(ZonedDateTime timestamp) {
         this.timestamp = timestamp;
     }
 }
